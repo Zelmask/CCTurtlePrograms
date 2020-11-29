@@ -1,0 +1,65 @@
+[
+    {
+        "Script":"C:\\Code\\CCTurtlePrograms\\quarry\\again.lua",
+        "Dests": [
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\11\\again.lua",
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\15\\again.lua",
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\16\\again.lua",
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\20\\again.lua"
+        ]
+    },
+    {
+        "Script":"C:\\Code\\CCTurtlePrograms\\quarry\\t.lua",
+        "Dests": [
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\11\\t.lua",
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\15\\t.lua",
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\16\\t.lua",
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\20\\t.lua"
+        ]
+    },
+    {
+        "Script":"C:\\Code\\CCTurtlePrograms\\quarry\\inv.lua",
+        "Dests": [
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\11\\inv.lua",
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\15\\inv.lua",
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\16\\inv.lua",
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\20\\inv.lua"
+        ]
+    },
+    {
+        "Script":"C:\\Code\\CCTurtlePrograms\\quarry\\fuelUp.lua",
+        "Dests": [
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\11\\fuelUp.lua",
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\15\\fuelUp.lua",
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\16\\fuelUp.lua",
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\20\\fuelUp.lua"
+        ]
+    },
+    {
+        "Script":"C:\\Code\\CCTurtlePrograms\\quarry\\quarry.lua",
+        "Dests": [
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\11\\quarry.lua",
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\15\\quarry.lua",
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\16\\quarry.lua",
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\20\\quarry.lua"
+        ]
+    },
+    {
+        "Script":"C:\\Code\\CCTurtlePrograms\\quarry\\remote_terminal\\watcher.lua",
+        "Dests": [
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\22\\watcher.lua",
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\23\\watcher.lua"
+        ]
+    },
+    {
+        "Script":"C:\\Code\\CCTurtlePrograms\\quarry\\rednetPlus.lua",
+        "Dests": [
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\11\\rednetPlus.lua",
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\15\\rednetPlus.lua",
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\16\\rednetPlus.lua",
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\20\\rednetPlus.lua",
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\22\\rednetPlus.lua",
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\23\\rednetPlus.lua"
+        ]
+    }
+]
