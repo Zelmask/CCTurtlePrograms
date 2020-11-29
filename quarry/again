@@ -1,0 +1,104 @@
+os.loadAPI("fuelUp")
+local stop = false
+local USEMODEM = peripheral.isPresent("right") and peripheral.getType("right") == "modem"
+print(USEMODEM)
+
+local run_in_debug = false
+
+local tArgs = {...}
+for i=1,#tArgs do
+	local arg = tArgs[i]
+	if string.find(arg, "-") == 1 then
+		for c=2,string.len(arg) do
+			local ch = string.sub(arg,c,c)
+			if ch == 'd' then
+				run_in_debug = true
+			else
+				write("Invalid flag '")
+				write(ch)
+				print("'")
+			end
+		end
+	end
+end
+
+function broadcast(s)
+	modemOpen()
+	s2 = os.getComputerLabel() .. " : " .. s
+	print(s2)
+	rednet.broadcast(s2,"miningTurtle")
+end
+
+function modemOpen()
+	if USEMODEM and not rednet.isOpen("right") then
+		rednet.open("right")
+		os.sleep(1)
+	end
+end
+
+function modemClose()
+	if USEMODEM and rednet.isOpen("right") then
+		rednet.close("right")
+	end
+end
+
+function main_loop()
+	modemOpen()
+	broadcast("Doing Quarry again...")
+	if not run_in_debug then
+		fuelUp.refuel()
+		turtle.turnLeft()
+		turtle.dig()
+		turtle.turnRight()
+		for i=1, 16 do
+			turtle.select(i)
+			
+			data = turtle.getItemDetail()
+			
+			if data ~= nil and data.name == "enderstorage:ender_storage" then
+				break
+			end
+		end
+		for i=1, 32 do
+			while not turtle.forward() do
+				turtle.dig()
+			end
+		end
+		turtle.turnLeft()
+		turtle.place()
+		turtle.turnRight()
+		for i=1, 3 do
+			while not turtle.down() do
+				turtle.digDown()
+			end
+		end
+		for i=1, 3 do
+			while not turtle.up() do
+				turtle.digUp()
+			end
+		end
+	end
+	shell.run("quarry")
+	broadcast("End of Quarry...awaiting instructions : again or stop")
+end
+
+function modemListen()	
+	if USEMODEM then
+		while not stop do
+			local id, msg, distance = rednet.receive()
+			if msg ~= nil then
+				print("Received following message " .. msg)
+				if string.find(msg, "again " .. os.getComputerLabel()) ~= nil then
+					main_loop()
+				elseif string.find(msg, "stop " .. os.getComputerLabel()) ~= nil then
+					stop = true
+					broadcast(os.getComputerLabel() .. " over and out!")
+					os.sleep(1)
+				end
+			end
+		end
+		modemClose()
+	end
+end
+
+parallel.waitForAll(modemListen, main_loop)

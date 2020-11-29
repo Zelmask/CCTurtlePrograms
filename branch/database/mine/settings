@@ -1,0 +1,27 @@
+chestSelect = 2
+lateralTorches = 1
+floor = true
+walls = true
+mainTorches = false
+tunnelspace = 4
+quantity = 10
+ignor = {
+  "minecraft:dirt",
+  "minecraft:lava",
+  "minecraft:flowing_lava",
+  "minecraft:water",
+  "minecraft:flowing_water",
+  "minecraft:torch",
+  "projectred-exploration:stone",
+  "chisel:basalt2",
+  "chisel:basalt",
+  "minecraft:cobblestone",
+  "minecraft:stone",
+  "minecraft:diorite",
+  "minecraft:andesite",
+}
+trash = true
+Autofuel = true
+length = 8
+language = en
+torches = true

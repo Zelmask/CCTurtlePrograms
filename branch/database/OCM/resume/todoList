@@ -1,0 +1,289 @@
+todoList = {
+  "for Way_Back = 1, variables.CrosswayAmount*settings.tunnelspace do\
+      Freeway()\
+    end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "while not turtle.forward() do\
+    if turtle.getFuelLevel() == 0 then\
+      Fuel()\
+    elseif dig() == false then\
+      turtle.attack()\
+    end\
+  end",
+  "print(lang.status(settings.language, 4))",
+  "local endDay = os.day()\
+  local endTime = os.time()\
+  variables.stats[\"time\"] = (endDay-variables.startDay)*24.000+(endTime-variables.startTime)",
+}
