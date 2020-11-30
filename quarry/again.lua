@@ -1,3 +1,11 @@
+----------------------------
+-------------------------
+---------------------
+--------------- TODO : Faire un API modem pour Master + Slaves qui utilisent HostName pour Master et Lookup pour slaves et les slaves écrivent avec send et l'id
+---------------- https://computercraft.info/wiki/Rednet_(API)
+
+
+
 os.loadAPI("fuelUp.lua")
 os.loadAPI("rednetPlus.lua")
 local stop = false

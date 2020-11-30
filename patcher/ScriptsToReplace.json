@@ -48,7 +48,8 @@
         "Script":"C:\\Code\\CCTurtlePrograms\\quarry\\remote_terminal\\watcher.lua",
         "Dests": [
             "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\22\\watcher.lua",
-            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\23\\watcher.lua"
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\23\\watcher.lua",
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\24\\watcher.lua"
         ]
     },
     {
@@ -59,7 +60,8 @@
             "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\16\\rednetPlus.lua",
             "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\20\\rednetPlus.lua",
             "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\22\\rednetPlus.lua",
-            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\23\\rednetPlus.lua"
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\23\\rednetPlus.lua",
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\24\\rednetPlus.lua"
         ]
     }
 ]
