@@ -45,6 +45,15 @@
         ]
     },
     {
+        "Script":"C:\\Code\\CCTurtlePrograms\\quarry\\rednetSlave.lua",
+        "Dests": [
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\11\\rednetSlave.lua",
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\15\\rednetSlave.lua",
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\16\\rednetSlave.lua",
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\20\\rednetSlave.lua"
+        ]
+    },
+    {
         "Script":"C:\\Code\\CCTurtlePrograms\\quarry\\remote_terminal\\watcher.lua",
         "Dests": [
             "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\22\\watcher.lua",
@@ -53,15 +62,30 @@
         ]
     },
     {
+        "Script":"C:\\Code\\CCTurtlePrograms\\quarry\\remote_terminal\\rednetMaster.lua",
+        "Dests": [
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\22\\rednetMaster.lua",
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\23\\rednetMaster.lua",
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\24\\rednetMaster.lua"
+        ]
+    },
+    {
+        "Script":"C:\\Code\\CCTurtlePrograms\\quarry\\rednetCommon.lua",
+        "Dests": [
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\11\\rednetCommon.lua",
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\15\\rednetCommon.lua",
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\16\\rednetCommon.lua",
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\20\\rednetCommon.lua",
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\22\\rednetCommon.lua",
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\23\\rednetCommon.lua",
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\24\\rednetCommon.lua"
+        ]
+    },
+    {
+        "Action": "DELETE_IN_ALL",
         "Script":"C:\\Code\\CCTurtlePrograms\\quarry\\rednetPlus.lua",
         "Dests": [
-            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\11\\rednetPlus.lua",
-            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\15\\rednetPlus.lua",
-            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\16\\rednetPlus.lua",
-            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\20\\rednetPlus.lua",
-            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\22\\rednetPlus.lua",
-            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\23\\rednetPlus.lua",
-            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer\\24\\rednetPlus.lua"
+            "C:\\MinecraftServer\\FTBA\\Server\\world\\computer"
         ]
     }
 ]
