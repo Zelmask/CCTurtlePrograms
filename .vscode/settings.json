@@ -1,0 +1,28 @@
+{
+    "Lua.diagnostics.globals": [
+        "peripheral",
+        "textutils",
+        "rednet",
+        "rs",
+        "slaves",
+        "masters",
+        "masterHostname",
+        "masterHostName",
+        "masterConnected",
+        "rednetCommon",
+        "rednetLoop",
+        "beginHosting",
+        "shell",
+        "work",
+        "listSlaves",
+        "send",
+        "rednetMaster",
+        "parallel",
+        "updateStatus",
+        "initializationDone",
+        "getCantReceiveOrReadyToReceive",
+        "quarry",
+        "rednetSlave",
+        "fuelUp"
+    ]
+}

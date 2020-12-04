@@ -7,10 +7,8 @@
 
 
 os.loadAPI("fuelUp.lua")
-os.loadAPI("rednetPlus.lua")
-local stop = false
-local USEMODEM = peripheral.isPresent("right") and peripheral.getType("right") == "modem"
-print(USEMODEM)
+os.loadAPI("rednetSlave.lua")
+os.loadAPI("quarry.lua")
 
 local againAtPosition = false
 
@@ -31,27 +29,13 @@ for i=1,#tArgs do
 	end
 end
 
-local function broadcast(s)
-	modemOpen()
-	s2 = os.getComputerLabel() .. " : " .. s
-	print(s2)
-	rednetPlus.broadcast(s2,"miningTurtle")
-end
-
-function modemOpen()
-	if USEMODEM and not rednet.isOpen("right") then
-		rednet.open("right")
-	end
-end
-
-function modemClose()
-	if USEMODEM and rednet.isOpen("right") then
-		rednet.close("right")
-	end
+local function sendToMaster(s)
+	print(s)
+	rednetSlave.updateStatus(s)
 end
 
 function main_loop()
-	broadcast("Doing Quarry again...")
+	sendToMaster("Doing Quarry again...")
 	if not againAtPosition then
 		fuelUp.refuel()
 		turtle.turnLeft()
@@ -74,43 +58,50 @@ function main_loop()
 		turtle.turnLeft()
 		turtle.place()
 		turtle.turnRight()
+		local moveDownCount = 0
 		for i=1, 3 do
 			while not turtle.down() do
-				turtle.digDown()
+				if not turtle.digDown() then
+					break
+				end
 			end
+			moveDownCount = moveDownCount+1
 		end
-		for i=1, 3 do
+		for i=1, moveDownCount do
 			while not turtle.up() do
 				turtle.digUp()
 			end
 		end
 	end
-	shell.run("quarry")
-	broadcast("End of Quarry...awaiting instructions : again or stop")
+	quarry.main_loop()
+	sendToMaster("End of Quarry...awaiting instructions")
 end
 
-function modemListen()	
-	if USEMODEM then
-		while not stop do
-			modemOpen()
-			local id, msg, distance = rednet.receive()
-			if msg ~= nil then
-				print("Received following message " .. msg)
-				if string.find(msg, "again " .. os.getComputerLabel()) ~= nil then
-					againAtPosition = false
-					main_loop()
-				elseif string.find(msg, "resume " .. os.getComputerLabel()) ~= nil then
-					againAtPosition = true
-					main_loop()
-				elseif string.find(msg, "stop " .. os.getComputerLabel()) ~= nil then
-					stop = true
-					broadcast(os.getComputerLabel() .. " over and out!")
-				end
-			end
-			os.sleep(rednetPlus.tickDuration*rednetPlus.receiveSleepRatio)
+function toCallback(command,id,msg)	
+	if command == rednetCommon.getCommandPrefix().ACTION then
+		if msg == "again" then
+			againAtPosition = false
+			main_loop()
+		elseif msg == "resume" then
+			againAtPosition = true
+			main_loop()
+		elseif msg == "return" then
+			print("Calling Return")
+			quarry.comeBack()
+			sendToMaster("Going back!")
 		end
-		modemClose()
 	end
 end
 
-parallel.waitForAll(modemListen, main_loop)
+local parallels = rednetSlave.work("QuarryMining","Master",toCallback)
+table.insert(parallels,function() 
+	while not rednetCommon.getCantReceiveOrReadyToReceive() do
+		os.sleep(0.5)
+	end
+	main_loop()
+end)
+if #parallels == 1 then
+	main_loop()
+else
+	parallel.waitForAll(parallels[1],parallels[2],parallels[3])
+end

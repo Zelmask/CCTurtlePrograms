@@ -12,27 +12,46 @@ namespace patcher
         static void Main(string[] args)
         {
             var json = File.ReadAllText("ScriptsToReplace.json");
-            var scriptsToReplace = JsonSerializer.Deserialize<List<ScriptToReplace>>(json, new JsonSerializerOptions()
-            {
-                WriteIndented = true
-            });
-            foreach (var scriptToReplace in scriptsToReplace)
+            var scriptsToReplace = JsonSerializer.Deserialize<ScriptsToReplace>(json);
+            var allComputerIds = Directory.GetDirectories(scriptsToReplace.BasePath);
+            var scriptsToRemove = new List<ScriptToReplace>();
+            foreach (var scriptToReplace in scriptsToReplace.Scripts)
             {
                 FileInfo fileInfoScript = new FileInfo(scriptToReplace.Script);
-                foreach (var dest in scriptToReplace.Dests)
+                if (fileInfoScript.Exists)
                 {
-                    switch (scriptToReplace.Action)
+                    string[] idsToWorkWith = allComputerIds;
+                    if (scriptToReplace.Ids != null && scriptToReplace.Ids.Length > 0)
                     {
-                        case "DELETE_IN_ALL":
-                            DeleteInAll(fileInfoScript.Name, dest);
-                            break;
-
-                        default:
-                            CopyAndOverwriteIfNewest(fileInfoScript, dest);
-                            break;
+                        idsToWorkWith = scriptToReplace.Ids;
+                    }
+                    foreach (var id in idsToWorkWith)
+                    {
+                        switch (scriptToReplace.Action)
+                        {
+                            case "DELETE_IN_ALL":
+                                DeleteInAll(fileInfoScript.Name, Path.Combine(scriptsToReplace.BasePath, id));
+                                scriptsToRemove.Add(scriptToReplace);
+                                break;
+                            case "CREATE":
+                                OverwriteIfNewest(fileInfoScript, Path.Combine(scriptsToReplace.BasePath, id,fileInfoScript.Name),true);
+                                scriptsToRemove.Add(scriptToReplace);
+                                break;
+                            default:
+                                OverwriteIfNewest(fileInfoScript, Path.Combine(scriptsToReplace.BasePath, id,fileInfoScript.Name),false);
+                                break;
+                        }
                     }
                 }
             }
+            // if (scriptsToRemove.Count > 0)
+            // {
+            //     foreach (var scriptToRemove in scriptsToRemove)
+            //     {
+            //         scriptsToReplace.Scripts.Remove(scriptToRemove);
+            //     }
+            //     File.WriteAllText("ScriptsToReplace.json",JsonSerializer.Serialize<ScriptsToReplace>(scriptsToReplace, new JsonSerializerOptions() { WriteIndented = true }));
+            // }
         }
 
         private static void DeleteInAll(string scriptFileName, string dest)
@@ -44,22 +63,25 @@ namespace patcher
             }
         }
 
-        private static void CopyAndOverwriteIfNewest(FileInfo fileInfoScript, string dest)
+        private static void OverwriteIfNewest(FileInfo fileInfoScript, string dest,bool createIfNotExist)
         {
             var fileInfoDest = new FileInfo(dest);
             var directoryDestName = Path.GetDirectoryName(fileInfoDest.FullName);
-            var fileMatches = EnumerateFileInfos(directoryDestName, fileInfoScript.Name);
+            var files = EnumerateFileInfos(directoryDestName, "*.lua");
             if (!File.Exists(fileInfoDest.FullName))
             {
-                foreach (var fileMatch in fileMatches)
+                foreach (var file in files)
                 {
-                    if (fileMatch.Name == System.IO.Path.GetFileNameWithoutExtension(fileInfoDest.Name))
+                    if (file.Name == System.IO.Path.GetFileNameWithoutExtension(fileInfoDest.Name))
                     {
-                        File.Delete(Path.Combine(directoryDestName, fileMatch.Name));
+                        File.Delete(Path.Combine(directoryDestName, file.Name));
+                        File.Copy(fileInfoScript.FullName, fileInfoDest.FullName, true);
                         break;
+                    }else if(createIfNotExist)
+                    {
+                        File.Copy(fileInfoScript.FullName, fileInfoDest.FullName, true);
                     }
                 }
-                File.Copy(fileInfoScript.FullName, fileInfoDest.FullName, true);
             }
             else if (File.ReadAllBytes(fileInfoScript.FullName) != File.ReadAllBytes(fileInfoDest.FullName))
             {

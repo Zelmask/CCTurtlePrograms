@@ -6,6 +6,6 @@ namespace patcher
     {
         public string Action { get; set; }
         public string Script { get; set; }
-        public List<string> Dests { get; set; }
+        public string[] Ids { get; set; }
     }
 }

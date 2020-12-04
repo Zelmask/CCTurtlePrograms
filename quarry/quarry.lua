@@ -1,6 +1,5 @@
 os.loadAPI("inv.lua")
 os.loadAPI("t.lua")
-os.loadAPI("rednetPlus.lua")
 
 local x = 0
 local y = 0
@@ -18,48 +17,17 @@ local BLOCKEDMOV = 5
 local USRINTERRUPT = 6
 
 local CHARCOALONLY = false
-local USEMODEM = false
-local PRINT_DEBUG = false
 
 local goBack = false
 
 
--- Arguments
-local tArgs = {...}
-for i=1,#tArgs do
-	local arg = tArgs[i]
-	if string.find(arg, "-") == 1 then
-		for c=2,string.len(arg) do
-			local ch = string.sub(arg,c,c)
-			if ch == 'c' then
-				CHARCOALONLY = true
-			elseif ch == 'd' then
-				PRINT_DEBUG = true
-			else
-				write("Invalid flag '")
-				write(ch)
-				print("'")
-			end
-		end
-	end
-end
-
-USEMODEM = peripheral.isPresent("right") and peripheral.getType("right") == "modem"
-
-
 function out(s)
-
-	s2 = s
 	
-	if PRINT_DEBUG then
-		s2 = s .. " @ [" .. x .. ", " .. y .. ", " .. z .. "]"
-	end
+	print(textutils.formatTime(os.time(), true) .. " - " .. s)
 	
-	print(textutils.formatTime(os.time(), true) .. " - " .. s2)
-	
-	if USEMODEM then
-		rednetPlus.broadcast(os.getComputerLabel() .. " : " .. s2, "miningTurtle")
-	end  
+	-- if USEMODEM then
+	-- 	rednetPlus.broadcast(os.getComputerLabel() .. " : " .. s2, "miningTurtle")
+	-- end  
 end
 
 function dropInChest()
@@ -131,11 +99,11 @@ end
 
 function moveH()
 	if inv.isInventoryFull() then
-		print("Dropping trash")
+		--print("Dropping trash")
 		inv.dropTrash()
 		
 		if inv.isInventoryFull() then
-			print("Stacking items")
+			--print("Stacking items")
 			inv.stackItems()
 		end
 		
@@ -216,20 +184,8 @@ function moveH()
 	return OK
 end
 
-function modemListen()	
-	if USEMODEM then
-		out(os.getComputerLabel() .. " is Listening...")
-		while not goBack do
-			local id, msg, distance = rednet.receive()
-			if msg ~= nil then
-				print("Received following message " .. msg)
-				if string.find(msg, "return " .. os.getComputerLabel()) ~= nil then
-					goBack = true
-				end
-			end
-			os.sleep(rednetPlus.tickDuration*rednetPlus.receiveSleepRatio)
-		end
-	end
+function comeBack()
+	goBack = true
 end
 
 function digLayer()
@@ -332,13 +288,13 @@ function mainloop()
 
 			removeZ()
 		end
-		os.sleep(0.05)
+		os.sleep(0.25)
 	end
 end
 
-function main_program()
+function main_loop()
 	out("Starting Quarry")
-
+	goBack = false
 	while true do
 
 		goDown()
@@ -353,9 +309,7 @@ function main_program()
 			break
 		end
 		
-		os.sleep(0.05)
+		os.sleep(0.25)
 	end
 	out("Done")
 end
-
-parallel.waitForAll(modemListen, main_program)
