@@ -97,10 +97,14 @@ function dropTrash()
 		"minecraft:dirt",
 		"minecraft:granite",
 		"minecraft:gravel",
+		"minecraft:cobbled_deepslate",
+		"minecraft:tuff",
+		"minecraft:diorite",
+		"minecraft:andesite",
 		"chisel:basalt2",
 		"chisel:basalt",
 		"chisel:limestone2",
-		"byg:soapstone",
+		"byg:soapstone"
 		}
 
 	for i=1, 16 do
