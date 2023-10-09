@@ -6,8 +6,8 @@
 
 
 
-os.loadAPI("fuelUp.lua")
-os.loadAPI("rednetPlus.lua")
+os.loadAPI("./fuelUp.lua")
+os.loadAPI("./rednetPlus.lua")
 local stop = false
 local USEMODEM = peripheral.isPresent("right") and peripheral.getType("right") == "modem"
 print(USEMODEM)

@@ -1,6 +1,6 @@
-os.loadAPI("inv.lua")
-os.loadAPI("t.lua")
-os.loadAPI("rednetPlus.lua")
+os.loadAPI("./inv.lua")
+os.loadAPI("./t.lua")
+os.loadAPI("./rednetPlus.lua")
 
 local x = 0
 local y = 0
@@ -68,7 +68,7 @@ function dropInChest()
 	local success, data = turtle.inspect()
 	
 	if success then
-		if data.name == "minecraft:chest" or data.name == "ironchest:iron_chest" or data.name == "enderstorage:ender_storage" then
+		if string.find(data.name,"chest") or string.find(data.name, "storage") then
 		
 			out("Dropping items in chest")
 			
