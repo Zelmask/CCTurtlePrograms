@@ -1,4 +1,4 @@
 to install : 
 
-pastebin get xPWfKCfw github
-github Zelmask CCTurtlePrograms . . main
+pastebin get xPWfKCfw gh
+gh Zelmask CCTurtlePrograms . . main

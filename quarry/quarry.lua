@@ -5,9 +5,10 @@ os.loadAPI("downloads/CCTurtlePrograms/quarry/rednetPlus.lua")
 local x = 0
 local y = 0
 local z = 0
-local max = 16
-local deep = 64
+local diameter = 16
+local depth = -1
 local facingfw = true
+local nbLayers = 0;
 
 local OK = 0
 local ERROR = 1
@@ -16,10 +17,12 @@ local OUTOFFUEL = 3
 local FULLINV = 4
 local BLOCKEDMOV = 5
 local USRINTERRUPT = 6
+local DEPT_REACHED = 7
 
 local CHARCOALONLY = false
 local USEMODEM = false
 local PRINT_DEBUG = false
+local CUSTOM_SIZE = false
 
 local goBack = false
 
@@ -35,6 +38,8 @@ for i=1,#tArgs do
 				CHARCOALONLY = true
 			elseif ch == 'd' then
 				PRINT_DEBUG = true
+			elseif ch == 's' then
+				CUSTOM_SIZE = true
 			else
 				write("Invalid flag '")
 				write(ch)
@@ -151,8 +156,8 @@ function moveH()
 			return OUTOFFUEL
 		end
 	end
-	
-	if facingfw and y<max-1 then
+
+	if facingfw and y<diameter-1 then
 	-- Going one way
 		local dugFw = t.dig()
 		if dugFw == false then
@@ -181,7 +186,7 @@ function moveH()
 		y = y-1
 		
 	else
-		if x+1 >= max then
+		if x+1 >= diameter then
 			t.digUp()
 			t.digDown()
 			return LAYERCOMPLETE -- Done with this Y level
@@ -311,8 +316,12 @@ end
 
 function mainloop()
 
+	readCustomSize()
+
 	while true do
 		local errorcode = digLayer()
+
+		nbLayers = nbLayers + 1
 	
 		if errorcode ~= OK then
 			goUp()
@@ -320,6 +329,8 @@ function mainloop()
 		end
 		
 		goToOrigin()
+
+		checkDepthReached()
 		
 		for i=1, 3 do
 			t.digDown()
@@ -333,6 +344,24 @@ function mainloop()
 			removeZ()
 		end
 		os.sleep(0.05)
+	end
+end
+
+function checkDepthReached()
+	if nbLayers >= depth then
+		goUp()
+		return DEPT_REACHED
+	end
+end
+
+function readCustomSize()
+	if CUSTOM_SIZE == true then
+		print("Enter depth")
+		local input = read()
+		depth = tonumber(input)
+		print("Enter diameter")
+		input = read()
+		diameter = tonumber(input)
 	end
 end
 
