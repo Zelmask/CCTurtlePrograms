@@ -92,15 +92,15 @@ end
 
 function dropTrash()
 	local thrash = {
-		"minecraft:cobblestone",
+		--"minecraft:cobblestone",
 		"minecraft:stone",
 		"minecraft:dirt",
-		"minecraft:granite",
+		--"minecraft:granite",
 		"minecraft:gravel",
 		"minecraft:cobbled_deepslate",
 		"minecraft:tuff",
-		"minecraft:diorite",
-		"minecraft:andesite",
+		--"minecraft:diorite",
+		--"minecraft:andesite",
 		"chisel:basalt2",
 		"chisel:basalt",
 		"chisel:limestone2",

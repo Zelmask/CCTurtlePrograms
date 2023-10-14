@@ -330,7 +330,7 @@ function mainloop()
 		
 		goToOrigin()
 
-		checkDepthReached()
+		checkCustomDepthReached()
 		
 		for i=1, 3 do
 			t.digDown()
@@ -347,8 +347,8 @@ function mainloop()
 	end
 end
 
-function checkDepthReached()
-	if nbLayers >= depth then
+function checkCustomDepthReached()
+	if CUSTOM_SIZE == true and nbLayers >= depth then
 		goUp()
 		return DEPT_REACHED
 	end
